@@ -57,7 +57,7 @@ export default function ProjectFlow({ projectId, stage, tasks }: { projectId: st
               type="button"
               className="btn btn-outline"
               disabled={pending}
-              style={{ minHeight: 36, padding: "6px 14px", fontSize: "0.875rem", marginLeft: "auto" }}
+              style={{ minHeight: 44, padding: "6px 14px", fontSize: "0.875rem", marginLeft: "auto" }}
               onClick={() => startTransition(async () => { setOptStage(picked); await setProjectStage(projectId, picked); })}
             >
               Marcar como etapa actual

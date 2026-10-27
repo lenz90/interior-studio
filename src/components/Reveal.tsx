@@ -21,6 +21,14 @@ export function Reveal({
   style?: React.CSSProperties;
 }) {
   const reduce = useReducedMotion();
+  if (onMount) {
+    // CSS puro: visible sin JS y sin esperar a la hidratación (LCP).
+    return (
+      <div className={`enter${className ? ` ${className}` : ""}`} style={{ ["--d" as string]: `${delay}s`, ...style }}>
+        {children}
+      </div>
+    );
+  }
   const initial = reduce ? { opacity: 0 } : { opacity: 0, y };
   const shown = { opacity: 1, y: 0 };
   const transition = { duration: 0.6, delay, ease };

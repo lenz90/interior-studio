@@ -115,6 +115,11 @@ export default function Kanban({ initial }: { initial: BusinessTask[] }) {
     }
   }
 
+  /** Al cambiar de columna la tarjeta se remonta: devuelve el foco a su asa. */
+  function refocusGrip(id: string) {
+    setTimeout(() => document.querySelector<HTMLElement>(`[data-grip="${id}"]`)?.focus(), 350);
+  }
+
   function onDragStart(e: DragStartEvent) {
     setActiveId(String(e.active.id));
   }
@@ -167,7 +172,7 @@ export default function Kanban({ initial }: { initial: BusinessTask[] }) {
       </div>
 
       <p className="muted" style={{ margin: 0, fontSize: "0.8125rem" }}>
-        Arrastra las tarjetas con el asa ⠿ entre columnas, o usa las flechas. Con teclado: Espacio para levantar, flechas para mover, Espacio para soltar.
+        Arrastra las tarjetas con el asa ⠿ entre columnas, o usa las flechas. Con teclado, usa las flechas ← → de cada tarjeta (Espacio sobre el asa también la levanta).
       </p>
 
       <DndContext
@@ -203,7 +208,7 @@ export default function Kanban({ initial }: { initial: BusinessTask[] }) {
                         dragging={activeId === t.id}
                         left={ci > 0 ? COLUMNS[ci - 1] : null}
                         right={ci < COLUMNS.length - 1 ? COLUMNS[ci + 1] : null}
-                        onMove={(s) => patch(t.id, { status: s }, `Movida a «${labelOf(s)}»`)}
+                        onMove={(s) => { patch(t.id, { status: s }, `Movida a «${labelOf(s)}»`); refocusGrip(t.id); }}
                         onOwner={(v) => patch(t.id, { owner_name: v })}
                         onRemove={() => remove(t.id)}
                       />
@@ -213,7 +218,7 @@ export default function Kanban({ initial }: { initial: BusinessTask[] }) {
             </Column>
           ))}
         </div>
-        <DragOverlay dropAnimation={{ duration: 220, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }}>
+        <DragOverlay dropAnimation={reduce ? null : { duration: 220, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }}>
           {active ? <CardBody task={active} done={active.status === "done"} overlay /> : null}
         </DragOverlay>
       </DndContext>
@@ -272,7 +277,7 @@ function TaskCard({
       dragging={dragging}
       nodeRef={setNodeRef}
       grip={
-        <button type="button" className="kgrip" aria-label={`Arrastrar «${task.title}»`} disabled={pending} {...attributes} {...listeners}>
+        <button type="button" className="kgrip" aria-label={`Arrastrar «${task.title}»`} data-grip={task.id} disabled={pending} {...attributes} {...listeners}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             {[6, 12, 18].flatMap((y) => [9, 15].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="1.6" />))}
           </svg>
@@ -292,7 +297,7 @@ function TaskCard({
                 const v = e.currentTarget.value.trim() || null;
                 if (v !== task.owner_name) onOwner(v);
               }}
-              style={{ flex: 1, minWidth: 0, fontSize: "0.8125rem", padding: "6px 8px", borderRadius: 6, borderColor: "var(--line)", background: "#fbf7f2" }}
+              style={{ flex: 1, minWidth: 0, fontSize: "1rem", padding: "6px 8px", minHeight: 44, borderRadius: 6, borderColor: "var(--line)", background: "#fbf7f2" }}
             />
           </label>
           <div className="row between" style={{ ["--gap" as string]: "0.5rem" }}>

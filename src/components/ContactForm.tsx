@@ -8,7 +8,7 @@ const fieldStyle: React.CSSProperties = {
   fontSize: "1rem",
   padding: 14,
   borderRadius: 4,
-  border: "1px solid #6b5b50",
+  border: "1px solid var(--wheat)",
   background: "#3a2e27",
   color: "#f6f1eb",
 };

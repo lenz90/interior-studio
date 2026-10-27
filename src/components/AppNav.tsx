@@ -44,7 +44,7 @@ export default function AppNav({ email }: { email: string }) {
       </nav>
       <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: 8, fontSize: "0.8125rem", color: "var(--on-dark-2)" }}>
         <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{email}</span>
-        <button type="button" onClick={signOut} className="btn" style={{ background: "transparent", color: "var(--bg)", border: "1px solid var(--muted)", minHeight: 40 }}>
+        <button type="button" onClick={signOut} className="btn" style={{ background: "transparent", color: "var(--bg)", border: "1px solid var(--muted)", minHeight: 44 }}>
           Cerrar sesión
         </button>
       </div>

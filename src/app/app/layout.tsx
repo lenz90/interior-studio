@@ -18,7 +18,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <AppNav email={user.email ?? ""} />
       <main className="app-main">
         {isMember ? (
-          <div className="app-content">{children}</div>
+          children
         ) : (
           <div className="card stack" style={{ maxWidth: 560 }}>
             <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Sin acceso todavía</h1>
