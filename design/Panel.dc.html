@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel principal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#F6F1EB}
+a{color:#2B211C}a:hover{color:#A4502F}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2B211C; background: #F6F1EB; width: 100%; min-height: 1180px; display: flex; flex-wrap: wrap">
+
+  <aside style="flex: 1 1 220px; max-width: 100%; background: #2B211C; color: #F6F1EB; padding: 28px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px">[Nombre del estudio]</span>
+    <nav aria-label="Espacio de trabajo" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px">
+      <a href="Panel.dc.html" aria-current="page" style="text-decoration: none; color: #2B211C; background: #F6F1EB; padding: 12px 14px; border-radius: 6px; font-weight: 500">Panel</a>
+      <a href="Proyecto.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Proyectos</a>
+      <a href="Clientes.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Clientes</a>
+      <a href="Finanzas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Finanzas</a>
+      <a href="#decisiones" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Negocio y decisiones</a>
+      <a href="Tareas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Tareas del negocio</a>
+    </nav>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 36px 40px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 14px; color: #6B5B50">Lunes 26 de octubre · datos de ejemplo</span>
+        <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 44px">Buenas tardes</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <button type="button" style="font: inherit; font-size: 15px; padding: 12px 18px; border-radius: 999px; border: 1px solid #2B211C; background: transparent; cursor: pointer">+ Tarea</button>
+        <button type="button" style="font: inherit; font-size: 15px; padding: 12px 18px; border-radius: 999px; border: 0; background: #A4502F; color: #FFFFFF; cursor: pointer">+ Nuevo proyecto</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+      <div style="background: #FFFFFF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #6B5B50">Proyectos activos</span><span style="font-size: 32px; font-weight: 500">3</span></div>
+      <div style="background: #FFFFFF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #6B5B50">Contactos nuevos</span><span style="font-size: 32px; font-weight: 500">2</span></div>
+      <div style="background: #FFFFFF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #6B5B50">Por cobrar este mes</span><span style="font-size: 32px; font-weight: 500">$ 4.800</span></div>
+      <div style="background: #FFFFFF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 14px; color: #6B5B50">Tareas para hoy</span><span style="font-size: 32px; font-weight: 500">4</span></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; align-items: start">
+      <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Hoy</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px">
+          <li><label style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EADFD2"><input type="checkbox" style="width: 20px; height: 20px; accent-color: #A4502F"><span style="flex: 1">Enviar moodboard a Familia R.</span><span style="font-size: 13px; color: #6B5B50">Depto. Centro</span></label></li>
+          <li><label style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EADFD2"><input type="checkbox" style="width: 20px; height: 20px; accent-color: #A4502F"><span style="flex: 1">Cotizar sofá con 2 proveedores</span><span style="font-size: 13px; color: #6B5B50">Casa Norte</span></label></li>
+          <li><label style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EADFD2"><input type="checkbox" checked style="width: 20px; height: 20px; accent-color: #A4502F"><span style="flex: 1; color: #6B5B50; text-decoration: line-through">Visita de obra 10:00</span><span style="font-size: 13px; color: #6B5B50">Café Plaza</span></label></li>
+          <li><label style="display: flex; gap: 12px; align-items: center; padding: 10px 0"><input type="checkbox" style="width: 20px; height: 20px; accent-color: #A4502F"><span style="flex: 1">Responder 2 contactos de la web</span><span style="font-size: 13px; color: #6B5B50">Clientes</span></label></li>
+        </ul>
+      </section>
+
+      <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Proyectos en curso</h2><a href="Proyecto.dc.html" style="font-size: 14px">Ver todos</a></div>
+        <a href="Proyecto.dc.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 8px; padding: 12px 0; border-bottom: 1px solid #EADFD2">
+          <span style="display: flex; justify-content: space-between; gap: 12px"><strong style="font-weight: 500">Depto. Centro · Familia R.</strong><span style="font-size: 13px; color: #A4502F; font-weight: 600">Concepto</span></span>
+          <span style="height: 6px; background: #EADFD2; border-radius: 3px; display: block"><span style="display: block; width: 33%; height: 6px; background: #A4502F; border-radius: 3px"></span></span>
+        </a>
+        <a href="Proyecto.dc.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 8px; padding: 12px 0; border-bottom: 1px solid #EADFD2">
+          <span style="display: flex; justify-content: space-between; gap: 12px"><strong style="font-weight: 500">Casa Norte · Sra. M.</strong><span style="font-size: 13px; color: #A4502F; font-weight: 600">Compras</span></span>
+          <span style="height: 6px; background: #EADFD2; border-radius: 3px; display: block"><span style="display: block; width: 66%; height: 6px; background: #A4502F; border-radius: 3px"></span></span>
+        </a>
+        <a href="Proyecto.dc.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 8px; padding: 12px 0">
+          <span style="display: flex; justify-content: space-between; gap: 12px"><strong style="font-weight: 500">Café Plaza · local</strong><span style="font-size: 13px; color: #A4502F; font-weight: 600">Obra</span></span>
+          <span style="height: 6px; background: #EADFD2; border-radius: 3px; display: block"><span style="display: block; width: 78%; height: 6px; background: #A4502F; border-radius: 3px"></span></span>
+        </a>
+      </section>
+
+      <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Contactos nuevos (web)</h2><a href="Clientes.dc.html" style="font-size: 14px">Ver clientes</a></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-bottom: 1px solid #EADFD2"><strong style="font-weight: 500">Carla T. · Vivienda</strong><span style="font-size: 14px; color: #6B5B50">"Quiero renovar sala y comedor"</span></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0"><strong style="font-weight: 500">Estudio Vela · Oficina</strong><span style="font-size: 14px; color: #6B5B50">"Necesitamos ordenar una oficina de 8 personas"</span></div>
+      </section>
+
+      <section id="decisiones" style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Negocio y decisiones</h2>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span style="font-size: 13px; color: #6B5B50">Decidido · 26 oct</span><span>Enfocar el estudio en vivienda y locales pequeños</span></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span style="font-size: 13px; color: #8A6116; font-weight: 600">Pregunta abierta</span><span>¿Cobrar por m², por proyecto o con comisión por compras?</span></div>
+        <button type="button" style="align-self: flex-start; font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid #2B211C; background: transparent; cursor: pointer">+ Registrar decisión</button>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

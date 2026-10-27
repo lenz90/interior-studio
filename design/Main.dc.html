@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Landing del estudio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#F6F1EB}
+a{color:#2B211C}a:hover{color:#8A4226}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2B211C; background: #F6F1EB; width: 100%">
+
+  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 40px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; box-sizing: border-box">
+    <a href="#inicio" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; text-decoration: none">[Nombre del estudio] <span style="color: #6B5B50">· interiores</span></a>
+    <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 28px; align-items: center; font-size: 15px">
+      <a href="#servicios" style="text-decoration: none">Servicios</a>
+      <a href="#proceso" style="text-decoration: none">Cómo trabajo</a>
+      <a href="#proyectos" style="text-decoration: none">Proyectos</a>
+      <a href="#contacto" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 12px 20px; border-radius: 999px">Agenda una consulta</a>
+    </nav>
+  </header>
+
+  <section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 56px 40px 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: center; box-sizing: border-box">
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <p style="margin: 0; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #6B5B50">Estudio de diseño de interiores</p>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 72px; line-height: 1.02">Espacios que se sienten tuyos, de principio a fin.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #5A4A40; max-width: 520px">Diseño tu casa o tu negocio con un proceso claro: una sola persona te acompaña desde la primera idea hasta la entrega de llaves.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="#contacto" style="text-decoration: none; background: {{accent}}; color: #FFFFFF; padding: 16px 28px; border-radius: 999px; font-weight: 500">Agenda una consulta</a>
+        <a href="#proyectos" style="text-decoration: none; border: 1px solid #2B211C; padding: 15px 28px; border-radius: 999px; font-weight: 500">Ver proyectos</a>
+      </div>
+    </div>
+    <div role="img" aria-label="Espacio para foto principal de un proyecto" style="height: 520px; border-radius: 4px; background: #D9C3A5; display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box">
+      <span style="font-size: 13px; color: #5A4A40; background: #F6F1EB; padding: 6px 10px; border-radius: 4px">[Foto principal de un proyecto]</span>
+    </div>
+  </section>
+
+  <section id="servicios" style="background: #FFFFFF">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px">Servicios</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+        <div style="border-top: 1px solid #2B211C; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+          <h3 style="margin: 0; font-size: 22px; font-weight: 500">Asesoría</h3>
+          <p style="margin: 0; line-height: 1.6; color: #5A4A40">Una sesión para ordenar ideas, elegir colores, materiales y distribución. Te llevas una guía para hacerlo tú.</p>
+          <p style="margin: 0; font-weight: 500">Desde [PRECIO]</p>
+        </div>
+        <div style="border-top: 1px solid #2B211C; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+          <h3 style="margin: 0; font-size: 22px; font-weight: 500">Proyecto de diseño</h3>
+          <p style="margin: 0; line-height: 1.6; color: #5A4A40">Concepto, moodboard, planos, renders y lista de compras detallada, lista para ejecutar.</p>
+          <p style="margin: 0; font-weight: 500">Desde [PRECIO]</p>
+        </div>
+        <div style="border-top: 1px solid #2B211C; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+          <h3 style="margin: 0; font-size: 22px; font-weight: 500">Llave en mano</h3>
+          <p style="margin: 0; line-height: 1.6; color: #5A4A40">Diseño, compras, proveedores y supervisión de obra. Recibes el espacio terminado.</p>
+          <p style="margin: 0; font-weight: 500">Desde [PRECIO]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px">Cómo trabajo</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #5A4A40">Sabes en todo momento en qué etapa está tu proyecto y qué sigue.</p>
+    </div>
+    <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+      <li style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; color: {{accent}}">01</span><strong style="font-weight: 500; font-size: 18px">Conversamos</strong><span style="color: #5A4A40; line-height: 1.5">Entiendo tu espacio, tu estilo y tu presupuesto.</span></li>
+      <li style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; color: {{accent}}">02</span><strong style="font-weight: 500; font-size: 18px">Concepto</strong><span style="color: #5A4A40; line-height: 1.5">Moodboard y propuesta de distribución.</span></li>
+      <li style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; color: {{accent}}">03</span><strong style="font-weight: 500; font-size: 18px">Presupuesto</strong><span style="color: #5A4A40; line-height: 1.5">Costos claros antes de comprar nada.</span></li>
+      <li style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; color: {{accent}}">04</span><strong style="font-weight: 500; font-size: 18px">Ejecución</strong><span style="color: #5A4A40; line-height: 1.5">Compras, proveedores y obra coordinados.</span></li>
+      <li style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 40px; color: {{accent}}">05</span><strong style="font-weight: 500; font-size: 18px">Entrega</strong><span style="color: #5A4A40; line-height: 1.5">Revisión final y seguimiento después.</span></li>
+    </ol>
+  </section>
+
+  <section id="proyectos" style="background: #FFFFFF">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: flex; flex-direction: column; gap: 40px; box-sizing: border-box">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px">Proyectos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+        <a href="#contacto" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+          <div role="img" aria-label="Espacio para foto de proyecto" style="height: 360px; background: #D9C3A5; border-radius: 4px"></div>
+          <span style="font-size: 18px; font-weight: 500">[Proyecto 1: tipo de espacio]</span>
+          <span style="color: #6B5B50">[Zona · año]</span>
+        </a>
+        <a href="#contacto" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+          <div role="img" aria-label="Espacio para foto de proyecto" style="height: 360px; background: #C7B49A; border-radius: 4px"></div>
+          <span style="font-size: 18px; font-weight: 500">[Proyecto 2: tipo de espacio]</span>
+          <span style="color: #6B5B50">[Zona · año]</span>
+        </a>
+        <a href="#contacto" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px">
+          <div role="img" aria-label="Espacio para foto de proyecto" style="height: 360px; background: #E2D2BC; border-radius: 4px"></div>
+          <span style="font-size: 18px; font-weight: 500">[Proyecto 3: tipo de espacio]</span>
+          <span style="color: #6B5B50">[Zona · año]</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: center; box-sizing: border-box">
+    <div role="img" aria-label="Espacio para foto de la diseñadora" style="height: 420px; background: #D9C3A5; border-radius: 4px"></div>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px">Sobre mí</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #5A4A40">[Tu historia en 3–4 líneas: formación, experiencia y por qué trabajas sola: trato directo, una sola persona responsable de tu proyecto.]</p>
+    </div>
+  </section>
+
+  <section id="contacto" style="background: #2B211C; color: #F6F1EB">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; box-sizing: border-box">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 48px">Cuéntame de tu espacio</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #E3D6C6">Te respondo en [PLAZO] para agendar una primera conversación sin costo.</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 16px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">Nombre<input type="text" style="font: inherit; font-size: 16px; padding: 14px; border-radius: 4px; border: 1px solid #6B5B50; background: #3A2E27; color: #F6F1EB"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">Correo o WhatsApp<input type="text" style="font: inherit; font-size: 16px; padding: 14px; border-radius: 4px; border: 1px solid #6B5B50; background: #3A2E27; color: #F6F1EB"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">Tipo de espacio<select style="font: inherit; font-size: 16px; padding: 14px; border-radius: 4px; border: 1px solid #6B5B50; background: #3A2E27; color: #F6F1EB"><option>Vivienda</option><option>Oficina</option><option>Local comercial</option><option>Otro</option></select></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">¿Qué te gustaría cambiar?<textarea rows="4" style="font: inherit; font-size: 16px; padding: 14px; border-radius: 4px; border: 1px solid #6B5B50; background: #3A2E27; color: #F6F1EB"></textarea></label>
+        <button type="button" style="font: inherit; font-weight: 500; font-size: 16px; padding: 16px; border: 0; border-radius: 999px; background: #F6F1EB; color: #2B211C; cursor: pointer">Enviar solicitud</button>
+        <span style="font-size: 13px; color: #E3D6C6">Cada solicitud entra directo a tu espacio de trabajo como nuevo contacto.</span>
+      </form>
+    </div>
+  </section>
+
+  <footer style="max-width: 1200px; margin: 0 auto; padding: 32px 40px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 14px; color: #6B5B50; box-sizing: border-box">
+    <span>[Nombre del estudio] · interiores</span>
+    <span>[Ciudad] · [Instagram] · [WhatsApp]</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#A4502F","options":["#A4502F","#5F6E55","#2B211C"]},"$preview":{"width":1280,"height":2900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#A4502F' };
+  }
+}
+</script>
+</body>
+</html>

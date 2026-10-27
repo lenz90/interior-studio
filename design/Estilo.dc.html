@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guía de estilo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2B211C}a:hover{color:#8A4226}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1180px; box-sizing: border-box; padding: 56px 64px; background: #F6F1EB; color: #2B211C; font-family: 'DM Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 40px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B5B50">Guía de estilo · borrador</span>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 1">Paleta B · Terracota cálida</h1>
+    </div>
+    <span style="font-size: 14px; color: #6B5B50">Nombre del estudio: pendiente</span>
+  </div>
+
+  <section aria-label="Colores" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #F6F1EB; border: 1px solid #D8CABB"></div><strong style="font-weight: 600; font-size: 15px">Fondo</strong><span style="font-size: 13px; color: #6B5B50">#F6F1EB · página</span></div>
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #EFE4D6"></div><strong style="font-weight: 600; font-size: 15px">Lino</strong><span style="font-size: 13px; color: #6B5B50">#EFE4D6 · secciones</span></div>
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #D9C3A5"></div><strong style="font-weight: 600; font-size: 15px">Trigo</strong><span style="font-size: 13px; color: #6B5B50">#D9C3A5 · fotos, detalles</span></div>
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #A4502F"></div><strong style="font-weight: 600; font-size: 15px">Terracota</strong><span style="font-size: 13px; color: #6B5B50">#A4502F · acento, botones</span></div>
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #5F6E55"></div><strong style="font-weight: 600; font-size: 15px">Salvia</strong><span style="font-size: 13px; color: #6B5B50">#5F6E55 · estados, apoyo</span></div>
+    <div style="display: flex; flex-direction: column; gap: 10px"><div style="height: 120px; border-radius: 12px; background: #2B211C"></div><strong style="font-weight: 600; font-size: 15px">Café</strong><span style="font-size: 13px; color: #6B5B50">#2B211C · texto, fondos oscuros</span></div>
+  </section>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+    <section aria-label="Tipografía" style="background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+      <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B5B50">Tipografía</span>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 64px; line-height: 1">Espacios cálidos</span><span style="font-size: 13px; color: #6B5B50">Instrument Serif · títulos · 52–72 px</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 22px; font-weight: 500">Proyecto completo</span><span style="font-size: 13px; color: #6B5B50">DM Sans 500 · subtítulos · 19–22 px</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; line-height: 1.6; color: #5A4A40">Diseño de viviendas y pequeños negocios con precio claro desde el primer día.</span><span style="font-size: 13px; color: #6B5B50">DM Sans 400 · texto · 16–19 px · color #5A4A40</span></div>
+    </section>
+
+    <section aria-label="Componentes" style="background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+      <span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6B5B50">Componentes</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+        <button type="button" style="font: inherit; font-weight: 500; font-size: 15px; padding: 14px 24px; border: 0; border-radius: 999px; background: #A4502F; color: #FFFFFF">Agenda una llamada</button>
+        <button type="button" style="font: inherit; font-weight: 500; font-size: 15px; padding: 13px 24px; border: 1px solid #2B211C; border-radius: 999px; background: transparent; color: #2B211C">Ver proyectos</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <span style="padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #F5E2D8; color: #8A4226">Contacto nuevo</span>
+        <span style="padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #F3E8D2; color: #6E4E14">Propuesta enviada</span>
+        <span style="padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #E4E8DE; color: #46523F">Cliente activo</span>
+        <span style="padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #EDE7E0; color: #5A4A40">Terminado</span>
+      </div>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #5A4A40">Campo de formulario<input type="text" value="Vivienda en [zona]" style="font: inherit; font-size: 16px; color: #2B211C; padding: 14px; border-radius: 8px; border: 1px solid #D8CABB; background: #FFFFFF"></label>
+      <div style="display: flex; gap: 16px; align-items: center">
+        <div aria-hidden="true" style="width: 72px; height: 88px; border-radius: 36px 36px 4px 4px; background: #D9C3A5"></div>
+        <span style="font-size: 14px; line-height: 1.5; color: #5A4A40">Formas: fotos con arco superior (tendencia de curvas 2026), tarjetas con esquinas de 16 px y botones redondeados.</span>
+      </div>
+    </section>
+  </div>
+
+  <p style="margin: 0; font-size: 14px; color: #5A4A40">Contraste verificado: texto Café sobre Fondo 14:1 · Terracota sobre Fondo 5:1 · blanco sobre Terracota 5,6:1. El Trigo y el Lino no se usan para texto.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

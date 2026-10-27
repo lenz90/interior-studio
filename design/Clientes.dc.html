@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Clientes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#F6F1EB}
+a{color:#2B211C}a:hover{color:#A4502F}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2B211C; background: #F6F1EB; width: 100%; min-height: 1000px; display: flex; flex-wrap: wrap">
+
+  <aside style="flex: 1 1 220px; max-width: 100%; background: #2B211C; color: #F6F1EB; padding: 28px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px">[Nombre del estudio]</span>
+    <nav aria-label="Espacio de trabajo" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px">
+      <a href="Panel.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Panel</a>
+      <a href="Proyecto.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Proyectos</a>
+      <a href="Clientes.dc.html" aria-current="page" style="text-decoration: none; color: #2B211C; background: #F6F1EB; padding: 12px 14px; border-radius: 6px; font-weight: 500">Clientes</a>
+      <a href="Finanzas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Finanzas</a>
+      <a href="Panel.dc.html#decisiones" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Negocio y decisiones</a>
+      <a href="Tareas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Tareas del negocio</a>
+    </nav>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 36px 40px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 44px">Clientes</h1>
+        <span style="color: #6B5B50">Desde el primer contacto hasta el seguimiento · datos de ejemplo</span>
+      </div>
+      <button type="button" style="font: inherit; font-size: 15px; padding: 12px 18px; border-radius: 999px; border: 0; background: #A4502F; color: #FFFFFF; cursor: pointer">+ Nuevo cliente</button>
+    </div>
+
+    <div role="tablist" aria-label="Filtrar por etapa" style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{tabs}}" as="tab" hint-placeholder-count="5">
+        <button type="button" role="tab" aria-selected="{{tab.selected}}" onClick="{{tab.pick}}" style="{{tab.style}}">{{tab.label}} · {{tab.count}}</button>
+      </sc-for>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 10px; padding: 8px 24px 16px">
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 700px; border-collapse: collapse; font-size: 15px">
+          <thead>
+            <tr style="text-align: left; color: #6B5B50; font-size: 13px">
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Cliente</th>
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Espacio</th>
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Etapa</th>
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Origen</th>
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Próximo paso</th>
+              <th scope="col" style="padding: 14px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2; text-align: right">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+              <tr>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2; font-weight: 500">{{r.name}}</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2">{{r.space}}</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2"><span style="{{r.badge}}">{{r.stage}}</span></td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2; color: #6B5B50">{{r.source}}</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2">{{r.next}}</td>
+                <td style="padding: 14px 8px; border-bottom: 1px solid #EADFD2; text-align: right">{{r.value}}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 18px; font-weight: 600">Plantillas de mensajes</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button type="button" style="font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid #D8CABB; background: #FFFFFF; cursor: pointer">Respuesta a contacto nuevo</button>
+        <button type="button" style="font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid #D8CABB; background: #FFFFFF; cursor: pointer">Envío de propuesta</button>
+        <button type="button" style="font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid #D8CABB; background: #FFFFFF; cursor: pointer">Recordatorio de pago</button>
+        <button type="button" style="font: inherit; font-size: 14px; padding: 10px 16px; border-radius: 999px; border: 1px solid #D8CABB; background: #FFFFFF; cursor: pointer">Pedir reseña</button>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'Todos' };
+  }
+  renderVals() {
+    const all = [
+      { name: 'Carla T.', space: 'Vivienda · sala y comedor', stage: 'Contacto nuevo', source: 'Web', next: 'Llamar hoy', value: '—' },
+      { name: 'Estudio Vela', space: 'Oficina · 8 personas', stage: 'Contacto nuevo', source: 'Web', next: 'Agendar visita', value: '—' },
+      { name: 'Familia R.', space: 'Depto. Centro', stage: 'Cliente activo', source: 'Recomendación', next: 'Enviar moodboard', value: '$ 6.500' },
+      { name: 'Sra. M.', space: 'Casa Norte', stage: 'Cliente activo', source: 'Instagram', next: 'Confirmar sofá', value: '$ 12.000' },
+      { name: 'Café Plaza', space: 'Local comercial', stage: 'Cliente activo', source: 'Recomendación', next: 'Visita de obra', value: '$ 9.200' },
+      { name: 'Jorge P.', space: 'Dormitorio principal', stage: 'Propuesta enviada', source: 'Web', next: 'Seguimiento el viernes', value: '$ 2.400' },
+      { name: 'Ana L.', space: 'Departamento', stage: 'Terminado', source: 'Instagram', next: 'Pedir reseña', value: '$ 5.100' }
+    ];
+    const badgeFor = (st) => {
+      const base = 'display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; ';
+      if (st === 'Contacto nuevo') return base + 'background: #F5E2D8; color: #8A4226;';
+      if (st === 'Propuesta enviada') return base + 'background: #F3E8D2; color: #6E4E14;';
+      if (st === 'Cliente activo') return base + 'background: #E4E8DE; color: #46523F;';
+      return base + 'background: #EDE7E0; color: #5A4A40;';
+    };
+    const labels = ['Todos', 'Contacto nuevo', 'Propuesta enviada', 'Cliente activo', 'Terminado'];
+    const f = this.state.filter;
+    const tabs = labels.map((label) => {
+      const sel = label === f;
+      return {
+        label,
+        selected: sel ? 'true' : 'false',
+        count: label === 'Todos' ? all.length : all.filter((r) => r.stage === label).length,
+        pick: () => this.setState({ filter: label }),
+        style: 'font: inherit; font-size: 14px; min-height: 44px; padding: 10px 16px; border-radius: 999px; cursor: pointer; ' + (sel ? 'border: 1px solid #2B211C; background: #2B211C; color: #FFFFFF;' : 'border: 1px solid #D8CABB; background: #FFFFFF; color: #2B211C;')
+      };
+    });
+    const rows = all.filter((r) => f === 'Todos' || r.stage === f).map((r) => ({ ...r, badge: badgeFor(r.stage) }));
+    return { tabs, rows };
+  }
+}
+</script>
+</body>
+</html>

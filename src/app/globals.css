@@ -1,0 +1,82 @@
+/* Paleta B · Terracota cálida (ver docs/marca.md) */
+:root {
+  --bg: #f6f1eb;
+  --linen: #efe4d6;
+  --wheat: #d9c3a5;
+  --accent: #a4502f;
+  --accent-hover: #8a4226;
+  --sage: #5f6e55;
+  --ink: #2b211c;
+  --ink-2: #5a4a40;
+  --muted: #6b5b50;
+  --line: #eadfd2;
+  --line-strong: #d8cabb;
+  --ochre: #8a6116;
+  --surface: #ffffff;
+  --surface-dark: #3a2e27;
+  --on-dark-2: #e3d6c6;
+  --radius: 10px;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-dm), system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); }
+a:hover { color: var(--accent-hover); }
+img { max-width: 100%; display: block; }
+
+.serif { font-family: var(--font-serif); font-weight: 400; }
+.muted { color: var(--muted); }
+.ink2 { color: var(--ink-2); }
+.container { max-width: 1200px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
+@media (max-width: 640px) { .container { padding-left: 16px; padding-right: 16px; } }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-weight: 500; font-size: 15px; text-decoration: none;
+  padding: 12px 20px; min-height: 44px; border-radius: 999px; cursor: pointer;
+  border: 1px solid transparent; transition: background .15s, color .15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); color: #fff; }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: #fff; }
+.btn-light { background: var(--bg); color: var(--ink); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+.card { background: var(--surface); border-radius: var(--radius); padding: 24px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--min, 260px), 1fr)); gap: var(--gap, 20px); }
+.stack { display: flex; flex-direction: column; gap: var(--gap, 12px); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap, 12px); }
+.between { justify-content: space-between; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.input {
+  font: inherit; font-size: 15px; color: var(--ink); padding: 12px; border-radius: 8px;
+  border: 1px solid var(--line-strong); background: var(--surface); width: 100%;
+}
+.input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge-new { background: #f5e2d8; color: #8a4226; }
+.badge-proposal { background: #f3e8d2; color: #6e4e14; }
+.badge-active { background: #e4e8de; color: #46523f; }
+.badge-done { background: #ede7e0; color: var(--ink-2); }
+
+.list-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.list-row:last-child { border-bottom: 0; }
+
+.table-wrap { overflow-x: auto; }
+table.table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 620px; }
+.table th { text-align: left; color: var(--muted); font-size: 13px; font-weight: 500; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.table td { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.empty { color: var(--muted); font-size: 14px; padding: 12px 0; }

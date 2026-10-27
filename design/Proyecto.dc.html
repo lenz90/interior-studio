@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Proyecto y flujo de trabajo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#F6F1EB}
+a{color:#2B211C}a:hover{color:#A4502F}
+</style>
+</helmet>
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #2B211C; background: #F6F1EB; width: 100%; min-height: 1400px; display: flex; flex-wrap: wrap">
+
+  <aside style="flex: 1 1 220px; max-width: 100%; background: #2B211C; color: #F6F1EB; padding: 28px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+    <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px">[Nombre del estudio]</span>
+    <nav aria-label="Espacio de trabajo" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px">
+      <a href="Panel.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Panel</a>
+      <a href="Proyecto.dc.html" aria-current="page" style="text-decoration: none; color: #2B211C; background: #F6F1EB; padding: 12px 14px; border-radius: 6px; font-weight: 500">Proyectos</a>
+      <a href="Clientes.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Clientes</a>
+      <a href="Finanzas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Finanzas</a>
+      <a href="Panel.dc.html#decisiones" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Negocio y decisiones</a>
+      <a href="Tareas.dc.html" style="text-decoration: none; color: #F6F1EB; padding: 12px 14px; border-radius: 6px">Tareas del negocio</a>
+    </nav>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 36px 40px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <a href="Panel.dc.html" style="font-size: 14px; color: #6B5B50">← Proyectos</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 44px">Casa Norte</h1>
+          <span style="color: #6B5B50">Sra. M. · Llave en mano · sala, comedor y cocina · datos de ejemplo</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <button type="button" style="font: inherit; font-size: 15px; padding: 12px 18px; border-radius: 999px; border: 1px solid #2B211C; background: transparent; cursor: pointer">Compartir avance con cliente</button>
+          <button type="button" style="font: inherit; font-size: 15px; padding: 12px 18px; border-radius: 999px; border: 0; background: #A4502F; color: #FFFFFF; cursor: pointer">+ Tarea</button>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Flujo de trabajo" style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Flujo de trabajo</h2>
+        <span style="font-size: 14px; color: #6B5B50">Toca una etapa para ver su lista</span>
+      </div>
+      <div style="overflow-x: auto">
+        <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(9, minmax(96px, 1fr)); gap: 6px; min-width: 880px">
+          <sc-for list="{{stages}}" as="s" hint-placeholder-count="9">
+            <li>
+              <button type="button" onClick="{{s.pick}}" style="{{s.btnStyle}}">
+                <span style="{{s.dotStyle}}">{{s.num}}</span>
+                <span style="{{s.labelStyle}}">{{s.name}}</span>
+              </button>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+      <div style="border-top: 1px solid #EADFD2; padding-top: 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline">
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">{{current.name}}</h3>
+          <span style="font-size: 13px; font-weight: 600; color: {{current.statusColor}}">{{current.status}}</span>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+          <sc-for list="{{current.tasks}}" as="t" hint-placeholder-count="3">
+            <li><label style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #EADFD2"><input type="checkbox" checked="{{t.done}}" style="width: 20px; height: 20px; accent-color: #A4502F"><span>{{t.label}}</span></label></li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+      <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Presupuesto del proyecto</h2>
+        <div style="display: flex; justify-content: space-between"><span style="color: #6B5B50">Aprobado</span><strong style="font-weight: 500">$ 12.000</strong></div>
+        <div style="display: flex; justify-content: space-between"><span style="color: #6B5B50">Comprado hasta hoy</span><strong style="font-weight: 500">$ 7.350</strong></div>
+        <span style="height: 8px; background: #EADFD2; border-radius: 4px; display: block"><span style="display: block; width: 61%; height: 8px; background: #A4502F; border-radius: 4px"></span></span>
+        <div style="display: flex; justify-content: space-between"><span style="color: #6B5B50">Disponible</span><strong style="font-weight: 500">$ 4.650</strong></div>
+        <a href="Finanzas.dc.html" style="font-size: 14px">Ver pagos del cliente</a>
+      </section>
+
+      <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Archivos</h2>
+        <a href="#archivos" style="text-decoration: none; display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span>Moodboard aprobado</span><span style="font-size: 13px; color: #6B5B50">PDF</span></a>
+        <a href="#archivos" style="text-decoration: none; display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span>Planos de distribución</span><span style="font-size: 13px; color: #6B5B50">PDF</span></a>
+        <a href="#archivos" style="text-decoration: none; display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span>Renders sala y comedor</span><span style="font-size: 13px; color: #6B5B50">4 imágenes</span></a>
+        <a href="#archivos" style="text-decoration: none; display: flex; justify-content: space-between; padding: 10px 0"><span>Presupuesto firmado</span><span style="font-size: 13px; color: #6B5B50">PDF</span></a>
+      </section>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: 18px; font-weight: 600">Compras y proveedores</h2>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 620px; border-collapse: collapse; font-size: 15px">
+          <thead>
+            <tr style="text-align: left; color: #6B5B50; font-size: 13px">
+              <th scope="col" style="padding: 10px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Partida</th>
+              <th scope="col" style="padding: 10px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Proveedor</th>
+              <th scope="col" style="padding: 10px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2; text-align: right">Costo</th>
+              <th scope="col" style="padding: 10px 8px; font-weight: 500; border-bottom: 1px solid #EADFD2">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Sofá 3 cuerpos</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Tapicería A</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; text-align: right">$ 1.900</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; color: #8A6116; font-weight: 600">Cotizando</td></tr>
+            <tr><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Mesa de comedor</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Carpintería B</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; text-align: right">$ 1.250</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; color: #A4502F; font-weight: 600">Pedido</td></tr>
+            <tr><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Muebles de cocina</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2">Carpintería B</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; text-align: right">$ 4.800</td><td style="padding: 12px 8px; border-bottom: 1px solid #EADFD2; color: #A4502F; font-weight: 600">Pedido</td></tr>
+            <tr><td style="padding: 12px 8px">Iluminación</td><td style="padding: 12px 8px">Tienda C</td><td style="padding: 12px 8px; text-align: right">$ 1.300</td><td style="padding: 12px 8px; color: #6B5B50; font-weight: 600">Entregado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="background: #FFFFFF; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 18px; font-weight: 600">Notas y decisiones del proyecto</h2>
+      <div style="display: flex; flex-direction: column; gap: 4px; padding: 10px 0; border-bottom: 1px solid #EADFD2"><span style="font-size: 13px; color: #6B5B50">20 oct · con la cliente</span><span>Se cambia el porcelanato de la cocina por uno mate, mismo precio.</span></div>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #6B5B50">Agregar nota<textarea rows="2" style="font: inherit; font-size: 15px; color: #2B211C; padding: 12px; border-radius: 6px; border: 1px solid #D8CABB; background: #FFFFFF"></textarea></label>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: 5 };
+  }
+  renderVals() {
+    const ACTIVE = 5;
+    const data = [
+      ['Contacto', ['Registrar datos del cliente', 'Primera llamada']],
+      ['Briefing', ['Visita y medidas', 'Fotos del espacio', 'Estilo y presupuesto del cliente']],
+      ['Concepto', ['Moodboard', 'Propuesta de distribución', 'Concepto aprobado']],
+      ['Presupuesto', ['Lista de partidas', 'Cotizaciones', 'Enviar presupuesto']],
+      ['Aprobación', ['Contrato firmado', 'Anticipo recibido']],
+      ['Compras', ['Pedidos a proveedores', 'Seguimiento de entregas', 'Confirmar fechas de instalación']],
+      ['Obra', ['Cronograma de obra', 'Visitas de supervisión', 'Registro de avances con fotos']],
+      ['Entrega', ['Revisión final con la cliente', 'Fotos del proyecto', 'Saldo cobrado']],
+      ['Seguimiento', ['Encuesta de satisfacción', 'Pedir reseña', 'Recordatorio a 3 meses']]
+    ];
+    const picked = this.state.picked;
+    const stages = data.map(([name], i) => {
+      const done = i < ACTIVE;
+      const active = i === ACTIVE;
+      const sel = i === picked;
+      return {
+        name,
+        num: done ? '✓' : String(i + 1),
+        pick: () => this.setState({ picked: i }),
+        btnStyle: 'font: inherit; width: 100%; min-height: 76px; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px 4px; border-radius: 8px; cursor: pointer; border: 0; background: ' + (sel ? '#F5E2D8' : 'transparent') + ';',
+        dotStyle: 'width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; box-sizing: border-box; ' + (done ? 'background: #A4502F; color: #FFFFFF;' : active ? 'background: #FFFFFF; color: #A4502F; border: 2px solid #A4502F;' : 'background: #EADFD2; color: #5A4A40;'),
+        labelStyle: 'font-size: 13px; color: #2B211C; ' + (sel ? 'font-weight: 600;' : 'font-weight: 400;')
+      };
+    });
+    const [cname, tasks] = data[picked];
+    const isDone = picked < ACTIVE;
+    const isActive = picked === ACTIVE;
+    const current = {
+      name: cname,
+      status: isDone ? 'Completada' : isActive ? 'En curso' : 'Pendiente',
+      statusColor: isDone ? '#6B5B50' : isActive ? '#A4502F' : '#8A6116',
+      tasks: tasks.map((label, j) => ({ label, done: isDone || (isActive && j === 0) }))
+    };
+    return { stages, current };
+  }
+}
+</script>
+</body>
+</html>
