@@ -1,7 +1,9 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { devPreview } from "@/lib/dev-preview";
 
 export async function middleware(request: NextRequest) {
+  if (devPreview) return NextResponse.next({ request });
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(

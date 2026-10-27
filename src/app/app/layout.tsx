@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import AppNav from "@/components/AppNav";
+import { devPreview } from "@/lib/dev-preview";
 
 export const dynamic = "force-dynamic";
 
@@ -9,13 +10,13 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
+  if (!user && !devPreview) redirect("/login");
 
-  const { data: isMember } = await supabase.rpc("is_studio_member");
+  const isMember = devPreview ? true : (await supabase.rpc("is_studio_member")).data;
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexWrap: "wrap" }}>
-      <AppNav email={user.email ?? ""} />
+      <AppNav email={user?.email ?? "vista-previa@local"} />
       <main className="app-main">
         {isMember ? (
           children
