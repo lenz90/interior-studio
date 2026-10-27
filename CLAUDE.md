@@ -27,9 +27,10 @@ Nombre comercial: **pendiente** (en la UI aparece como `[Nombre del estudio]`; c
 - Trabajar en ramas y PR; `main` = producción.
 
 ## Diseño
-- Antes de cualquier cambio visual: leer `.claude/skills/frontend-design/SKILL.md` y `design/brief.md` (dirección estética, tokens, movimiento y alcance vigentes).
-- Los tableros de `design/*.dc.html` siguen siendo la referencia de estructura y textos; el brief define cómo se ve y se mueve.
-- Al terminar: capturas en `design/capturas/` y agente `revision-diseno`.
+- Cualquier cambio visual: leer `.claude/skills/frontend-design/SKILL.md` (corto, con tabla) y de ahí **solo** el skill que toque: `design-tokens`, `motion` o `responsive-qa`. No leer `docs/` ni `design/` completos.
+- Dirección vigente en `design/brief.md`. Tableros `design/*.dc.html`: solo el de la página que se edita.
+- Landing a medida; app interna con shadcn/ui + Tailwind tematizados con la Paleta B.
+- Al terminar: `revision-diseno` con el diff (no el repo entero).
 
 ## Flujo de trabajo con agentes
 Ver `.claude/agents/`. Al terminar una tarea relevante, dejar un traspaso corto (Decidido / Pendiente / Afecta a) en la descripción del PR.
