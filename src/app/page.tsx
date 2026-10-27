@@ -26,12 +26,12 @@ const projects = [
   { title: "[Proyecto 3: tipo de espacio]", meta: "[Zona · año]", color: "#e2d2bc", span: "md:col-span-3 md:col-start-11", offset: "md:mt-10", ratio: "aspect-[3/4]" },
 ];
 
-function Num({ n, children }: { n: string; children: React.ReactNode }) {
+function Num({ n, children }: { n: string; children?: React.ReactNode }) {
   return (
     <p className="label flex items-center gap-3 text-ink-2">
-      <span className="text-terracota">{n}</span>
+      <span className="text-[var(--accent-hover)]">{n}</span>
       <span aria-hidden="true" className="h-px w-8 bg-ink/40" />
-      <span>{children}</span>
+      {children ? <span>{children}</span> : null}
     </p>
   );
 }
@@ -39,6 +39,9 @@ function Num({ n, children }: { n: string; children: React.ReactNode }) {
 export default function Home() {
   return (
     <main>
+      <noscript>
+        <style>{`[style*="opacity:0"],[style*="translateY(105%)"],[style*="scaleX(0)"]{opacity:1!important;transform:none!important}`}</style>
+      </noscript>
       <CaptureMode />
       <header className="wrap flex flex-wrap items-center justify-between gap-4 py-6">
         <Link href="#inicio" className="font-serif text-[clamp(1.5rem,1.2rem+0.8vw,2rem)] tracking-tight no-underline">
@@ -89,7 +92,7 @@ export default function Home() {
       <section id="servicios" className="bg-linen">
         <div className="wrap sec grid grid-cols-12 gap-x-[clamp(1rem,0.5rem+2vw,2.5rem)] gap-y-12">
           <div className="col-span-12 flex flex-col gap-6 md:col-span-4 md:sticky md:top-8 md:self-start">
-            <Reveal><Num n="02">Qué hago</Num></Reveal>
+            <Reveal><Num n="02" /></Reveal>
             <Reveal delay={0.08}><h2 className="h2d">Servicios</h2></Reveal>
           </div>
           <Stagger className="col-span-12 md:col-span-7 md:col-start-6" step={0.12}>
@@ -98,7 +101,7 @@ export default function Home() {
                 <a href="#contacto" className="group block no-underline">
                   <DrawLine />
                   <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-3 py-8 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:pl-3 md:grid-cols-[3rem_1fr_auto]">
-                    <span className="label text-terracota">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="label text-[var(--accent-hover)]">{String(i + 1).padStart(2, "0")}</span>
                     <div className="flex flex-col gap-3">
                       <h3 className="h3d"><span className="underline-grow">{s.title}</span></h3>
                       <p className="max-w-[34rem] leading-relaxed text-ink-2">{s.text}</p>
@@ -117,7 +120,7 @@ export default function Home() {
       <section id="proceso" className="wrap sec flex flex-col gap-[clamp(2.5rem,1.5rem+3vw,5rem)]">
         <div className="grid grid-cols-12 gap-x-[clamp(1rem,0.5rem+2vw,2.5rem)] gap-y-6">
           <div className="col-span-12 flex flex-col gap-6 md:col-span-5">
-            <Reveal><Num n="03">Proceso</Num></Reveal>
+            <Reveal><Num n="03" /></Reveal>
             <Reveal delay={0.08}><h2 className="h2d">Cómo trabajo</h2></Reveal>
           </div>
           <Reveal delay={0.15} className="col-span-12 md:col-span-4 md:col-start-8 md:self-end">
@@ -131,7 +134,7 @@ export default function Home() {
       <section id="proyectos" className="bg-linen">
         <div className="wrap sec flex flex-col gap-[clamp(2.5rem,1.5rem+3vw,5rem)]">
           <div className="flex flex-col gap-6">
-            <Reveal><Num n="04">Trabajos</Num></Reveal>
+            <Reveal><Num n="04" /></Reveal>
             <Reveal delay={0.08}><h2 className="h2d">Proyectos</h2></Reveal>
           </div>
           <div className="grid grid-cols-12 gap-x-[clamp(1rem,0.5rem+2vw,2.5rem)] gap-y-12">
@@ -156,7 +159,7 @@ export default function Home() {
           <Photo label="Espacio para foto de la diseñadora" className="aspect-[3/4] w-full" />
         </Reveal>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-6 md:col-start-7">
-          <Reveal><Num n="05">Quién</Num></Reveal>
+          <Reveal><Num n="05" /></Reveal>
           <Reveal delay={0.08}><h2 className="h2d">Sobre mí</h2></Reveal>
           <Reveal delay={0.16}>
             <p className="body-lg text-ink-2" style={{ lineHeight: 1.7 }}>
@@ -170,7 +173,7 @@ export default function Home() {
       <section id="contacto" className="bg-ink text-background">
         <div className="wrap sec grid grid-cols-12 gap-x-[clamp(1rem,0.5rem+2vw,2.5rem)] gap-y-12">
           <div className="col-span-12 flex flex-col gap-6 md:col-span-5">
-            <Reveal><p className="label flex items-center gap-3 text-[var(--on-dark-2)]"><span className="text-[var(--wheat)]">06</span><span aria-hidden="true" className="h-px w-8 bg-background/40" /><span>Contacto</span></p></Reveal>
+            <Reveal><p className="label flex items-center gap-3 text-[var(--on-dark-2)]"><span className="text-[var(--wheat)]">06</span><span aria-hidden="true" className="h-px w-8 bg-background/40" /></p></Reveal>
             <Reveal delay={0.08}><h2 className="h2d">Cuéntame de tu espacio</h2></Reveal>
             <Reveal delay={0.16}>
               <p className="body-lg text-[var(--on-dark-2)]">Te respondo en [PLAZO] para agendar una primera conversación sin costo.</p>

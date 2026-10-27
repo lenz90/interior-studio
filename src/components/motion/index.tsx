@@ -26,7 +26,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y: reduce ? 0 : y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.8, delay, ease: EASE }}
     >
       {children}
@@ -81,7 +81,7 @@ export function Drift({ children, className = "", distance = 60 }: { children: R
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, -distance]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.25]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0.6]);
   return (
     <motion.div ref={ref} className={className} style={reduce ? undefined : { y, opacity }}>
       {children}
@@ -93,7 +93,7 @@ export function Drift({ children, className = "", distance = 60 }: { children: R
 export function Line({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const reduce = useReducedMotion();
   return (
-    <motion.span className="block overflow-hidden pb-[0.08em]" initial="hidden" whileInView="shown" viewport={{ once: false, amount: 0.6 }}>
+    <motion.span className="block overflow-hidden pb-[0.15em]" initial="hidden" whileInView="shown" viewport={{ once: false, amount: 0.6 }}>
       <motion.span
         className="block"
         variants={{
@@ -111,7 +111,7 @@ export function Line({ children, delay = 0 }: { children: React.ReactNode; delay
 export function Stagger({ children, className, step = 0.09, as = "div" }: { children: React.ReactNode; className?: string; step?: number; as?: "div" | "ol" | "ul" }) {
   const Tag = motion[as] as typeof motion.div;
   return (
-    <Tag className={className} initial="hidden" whileInView="shown" viewport={{ once: false, amount: 0.2 }} variants={{ hidden: {}, shown: { transition: { staggerChildren: step } } }}>
+    <Tag className={className} initial="hidden" whileInView="shown" viewport={{ once: true, amount: 0.2 }} variants={{ hidden: {}, shown: { transition: { staggerChildren: step } } }}>
       {children}
     </Tag>
   );
