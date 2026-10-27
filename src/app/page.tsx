@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import ProcessSteps from "@/components/ProcessSteps";
-import { Drift, DrawLine, Line, Photo, Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { CaptureMode, Drift, DrawLine, Line, Photo, Reveal, Stagger, StaggerItem } from "@/components/motion";
 
 const STUDIO_NAME = "[Nombre del estudio]";
 
@@ -39,6 +39,7 @@ function Num({ n, children }: { n: string; children: React.ReactNode }) {
 export default function Home() {
   return (
     <main>
+      <CaptureMode />
       <header className="wrap flex flex-wrap items-center justify-between gap-4 py-6">
         <Link href="#inicio" className="font-serif text-[clamp(1.5rem,1.2rem+0.8vw,2rem)] tracking-tight no-underline">
           {STUDIO_NAME} <span className="text-muted-foreground">· interiores</span>

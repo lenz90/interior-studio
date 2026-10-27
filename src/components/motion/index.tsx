@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { MotionGlobalConfig, motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -125,4 +125,12 @@ export function StaggerItem({ children, className, as = "div" }: { children: Rea
       {children}
     </Tag>
   );
+}
+
+/** Con ?capture=1 las animaciones saltan al estado final (capturas de pantalla reproducibles). */
+export function CaptureMode() {
+  if (typeof window !== "undefined" && new URLSearchParams(window.location.search).has("capture")) {
+    MotionGlobalConfig.skipAnimations = true;
+  }
+  return null;
 }
