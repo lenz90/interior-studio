@@ -45,8 +45,8 @@ export default function LoginPage() {
   return (
     <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 16 }}>
       <div className="card stack" style={{ width: "100%", maxWidth: 400, padding: 32, ["--gap" as string]: "20px" }}>
-        <Link href="/" className="serif" style={{ fontSize: 26, textDecoration: "none" }}>[Nombre del estudio]</Link>
-        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 500 }}>
+        <Link href="/" className="serif" style={{ fontSize: "1.625rem", textDecoration: "none" }}>[Nombre del estudio]</Link>
+        <h1 style={{ margin: 0, fontSize: "1.375rem", fontWeight: 500 }}>
           {mode === "signin" ? "Entrar a tu espacio de trabajo" : "Crear la cuenta del estudio"}
         </h1>
         <form onSubmit={onSubmit} className="stack" style={{ ["--gap" as string]: "14px" }}>
@@ -62,7 +62,7 @@ export default function LoginPage() {
             {busy ? "Un momento…" : mode === "signin" ? "Entrar" : "Crear cuenta"}
           </button>
         </form>
-        {msg && <p role="status" className="ink2" style={{ margin: 0, fontSize: 14 }}>{msg}</p>}
+        {msg && <p role="status" className="ink2" style={{ margin: 0, fontSize: "0.875rem" }}>{msg}</p>}
         <button
           type="button"
           className="btn"
@@ -71,7 +71,7 @@ export default function LoginPage() {
         >
           {mode === "signin" ? "¿Primera vez? Crear cuenta" : "Ya tengo cuenta"}
         </button>
-        <p className="muted" style={{ margin: 0, fontSize: 13 }}>
+        <p className="muted" style={{ margin: 0, fontSize: "0.8125rem" }}>
           La primera cuenta creada queda como dueña del estudio.
         </p>
       </div>

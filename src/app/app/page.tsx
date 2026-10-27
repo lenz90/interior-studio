@@ -20,8 +20,8 @@ export default async function PanelPage() {
     <>
       <div className="row between" style={{ alignItems: "flex-end" }}>
         <div className="stack" style={{ ["--gap" as string]: "6px" }}>
-          <span className="muted" style={{ fontSize: 14, textTransform: "capitalize" }}>{today}</span>
-          <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>Hola de nuevo</h1>
+          <span className="muted" style={{ fontSize: "0.875rem", textTransform: "capitalize" }}>{today}</span>
+          <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Hola de nuevo</h1>
         </div>
         <div className="row">
           <Link href="/app/tareas" className="btn btn-outline">+ Tarea</Link>
@@ -38,18 +38,18 @@ export default async function PanelPage() {
 
       <div className="grid-auto" style={{ ["--min" as string]: "340px", alignItems: "start" }}>
         <section className="card stack">
-          <div className="row between"><h2 style={{ margin: 0, fontSize: 18 }}>En curso</h2><Link href="/app/tareas" style={{ fontSize: 14 }}>Ver tablero</Link></div>
+          <div className="row between"><h2 style={{ margin: 0, fontSize: "1.125rem" }}>En curso</h2><Link href="/app/tareas" style={{ fontSize: "0.875rem" }}>Ver tablero</Link></div>
           {(tasks.data ?? []).length === 0 && <p className="empty">Nada en curso. Mueve tareas desde el tablero.</p>}
           {(tasks.data ?? []).map((t) => (
             <div key={t.id} className="list-row">
               <span>{t.title}</span>
-              <span className="muted" style={{ fontSize: 13 }}>{t.owner_name || t.area}</span>
+              <span className="muted" style={{ fontSize: "0.8125rem" }}>{t.owner_name || t.area}</span>
             </div>
           ))}
         </section>
 
         <section className="card stack">
-          <div className="row between"><h2 style={{ margin: 0, fontSize: 18 }}>Proyectos en curso</h2><Link href="/app/proyectos" style={{ fontSize: 14 }}>Ver todos</Link></div>
+          <div className="row between"><h2 style={{ margin: 0, fontSize: "1.125rem" }}>Proyectos en curso</h2><Link href="/app/proyectos" style={{ fontSize: "0.875rem" }}>Ver todos</Link></div>
           {(projects.data ?? []).length === 0 && <p className="empty">Aún no hay proyectos.</p>}
           {(projects.data ?? []).map((p) => {
             const client = (p.clients as unknown as { name: string } | null)?.name;
@@ -57,7 +57,7 @@ export default async function PanelPage() {
               <Link key={p.id} href={`/app/proyectos/${p.id}`} className="stack" style={{ textDecoration: "none", ["--gap" as string]: "8px", padding: "10px 0", borderBottom: "1px solid var(--line)" }}>
                 <span className="row between">
                   <strong style={{ fontWeight: 500 }}>{p.name}{client ? ` · ${client}` : ""}</strong>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: "var(--accent)" }}>{STAGES[p.stage]}</span>
+                  <span style={{ fontSize: "0.8125rem", fontWeight: 600, color: "var(--accent)" }}>{STAGES[p.stage]}</span>
                 </span>
                 <span style={{ height: 6, background: "var(--line)", borderRadius: 3, display: "block" }}>
                   <span style={{ display: "block", width: `${Math.round(((p.stage + 1) / STAGES.length) * 100)}%`, height: 6, background: "var(--accent)", borderRadius: 3 }} />
@@ -68,25 +68,25 @@ export default async function PanelPage() {
         </section>
 
         <section className="card stack">
-          <div className="row between"><h2 style={{ margin: 0, fontSize: 18 }}>Contactos nuevos (web)</h2><Link href="/app/clientes" style={{ fontSize: 14 }}>Ver clientes</Link></div>
+          <div className="row between"><h2 style={{ margin: 0, fontSize: "1.125rem" }}>Contactos nuevos (web)</h2><Link href="/app/clientes" style={{ fontSize: "0.875rem" }}>Ver clientes</Link></div>
           {(requests.data ?? []).length === 0 && <p className="empty">Sin solicitudes nuevas.</p>}
           {(requests.data ?? []).map((r) => (
             <div key={r.id} className="stack" style={{ ["--gap" as string]: "6px", padding: "10px 0", borderBottom: "1px solid var(--line)" }}>
               <strong style={{ fontWeight: 500 }}>{r.name} · {r.space_type}</strong>
-              <span className="muted" style={{ fontSize: 14 }}>{r.contact} · {shortDate(r.created_at)}</span>
-              {r.message && <span className="ink2" style={{ fontSize: 14 }}>“{r.message}”</span>}
+              <span className="muted" style={{ fontSize: "0.875rem" }}>{r.contact} · {shortDate(r.created_at)}</span>
+              {r.message && <span className="ink2" style={{ fontSize: "0.875rem" }}>“{r.message}”</span>}
               <form action={convertRequest.bind(null, r.id)}>
-                <button className="btn btn-outline" style={{ minHeight: 36, padding: "6px 14px", fontSize: 14 }}>Pasar a clientes</button>
+                <button className="btn btn-outline" style={{ minHeight: 36, padding: "6px 14px", fontSize: "0.875rem" }}>Pasar a clientes</button>
               </form>
             </div>
           ))}
         </section>
 
         <section id="decisiones" className="card stack">
-          <h2 style={{ margin: 0, fontSize: 18 }}>Negocio y decisiones</h2>
+          <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Negocio y decisiones</h2>
           {(decisions.data ?? []).map((d) => (
             <div key={d.id} className="stack" style={{ ["--gap" as string]: "4px", padding: "8px 0", borderBottom: "1px solid var(--line)" }}>
-              <span style={{ fontSize: 13, fontWeight: d.kind === "question" ? 600 : 400, color: d.kind === "question" ? "var(--ochre)" : "var(--muted)" }}>
+              <span style={{ fontSize: "0.8125rem", fontWeight: d.kind === "question" ? 600 : 400, color: d.kind === "question" ? "var(--ochre)" : "var(--muted)" }}>
                 {d.kind === "question" ? "Pregunta abierta" : `Decidido · ${shortDate(d.created_at)}`}
               </span>
               <span>{d.text}</span>
@@ -115,8 +115,8 @@ export default async function PanelPage() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="card stack" style={{ padding: 20, ["--gap" as string]: "6px" }}>
-      <span className="muted" style={{ fontSize: 14 }}>{label}</span>
-      <span style={{ fontSize: 32, fontWeight: 500 }}>{value}</span>
+      <span className="muted" style={{ fontSize: "0.875rem" }}>{label}</span>
+      <span style={{ fontSize: "2rem", fontWeight: 500 }}>{value}</span>
     </div>
   );
 }

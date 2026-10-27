@@ -5,14 +5,14 @@ import { createClient } from "@/lib/supabase/client";
 
 const fieldStyle: React.CSSProperties = {
   font: "inherit",
-  fontSize: 16,
+  fontSize: "1rem",
   padding: 14,
   borderRadius: 4,
   border: "1px solid #6b5b50",
   background: "#3a2e27",
   color: "#f6f1eb",
 };
-const labelStyle: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: 14 };
+const labelStyle: React.CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: "0.875rem" };
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -36,7 +36,7 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }} role="status">
-        <p className="serif" style={{ fontSize: 32, margin: 0 }}>¡Gracias! Recibí tu mensaje.</p>
+        <p className="serif" style={{ fontSize: "2rem", margin: 0 }}>¡Gracias! Recibí tu mensaje.</p>
         <p style={{ margin: 0, color: "var(--on-dark-2)" }}>Te escribo pronto para agendar una conversación.</p>
       </div>
     );
@@ -46,15 +46,15 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <label style={labelStyle}>
         Nombre
-        <input name="name" required maxLength={120} style={fieldStyle} />
+        <input name="name" required maxLength={120} className="dark-field" style={fieldStyle} />
       </label>
       <label style={labelStyle}>
         Correo o WhatsApp
-        <input name="contact" required minLength={3} maxLength={160} style={fieldStyle} />
+        <input name="contact" required minLength={3} maxLength={160} className="dark-field" style={fieldStyle} />
       </label>
       <label style={labelStyle}>
         Tipo de espacio
-        <select name="space_type" style={fieldStyle} defaultValue="Vivienda">
+        <select name="space_type" className="dark-field" style={fieldStyle} defaultValue="Vivienda">
           <option>Vivienda</option>
           <option>Oficina</option>
           <option>Local comercial</option>
@@ -63,13 +63,13 @@ export default function ContactForm() {
       </label>
       <label style={labelStyle}>
         ¿Qué te gustaría cambiar?
-        <textarea name="message" rows={4} maxLength={2000} style={fieldStyle} />
+        <textarea name="message" rows={4} maxLength={2000} className="dark-field" style={fieldStyle} />
       </label>
-      <button type="submit" className="btn btn-light" disabled={status === "sending"} style={{ padding: 16, fontSize: 16 }}>
+      <button type="submit" className="btn btn-light" disabled={status === "sending"} style={{ padding: 16, fontSize: "1rem" }}>
         {status === "sending" ? "Enviando…" : "Enviar solicitud"}
       </button>
       {status === "error" && (
-        <span role="alert" style={{ fontSize: 14, color: "#f5c4b0" }}>
+        <span role="alert" style={{ fontSize: "0.875rem", color: "#f5c4b0" }}>
           No se pudo enviar. Inténtalo de nuevo en un momento.
         </span>
       )}
