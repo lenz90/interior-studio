@@ -13,7 +13,7 @@ export default async function ProjectsPage() {
   return (
     <>
       <div className="stack" style={{ ["--gap" as string]: "6px" }}>
-        <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>Proyectos</h1>
+        <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Proyectos</h1>
         <span className="muted">Cada proyecto avanza por 9 etapas, de Contacto a Seguimiento.</span>
       </div>
 
@@ -41,14 +41,14 @@ export default async function ProjectsPage() {
           return (
             <Link key={p.id} href={`/app/proyectos/${p.id}`} className="card stack" style={{ textDecoration: "none" }}>
               <span className="row between">
-                <strong style={{ fontWeight: 500, fontSize: 18 }}>{p.name}</strong>
-                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--accent)" }}>{STAGES[p.stage]}</span>
+                <strong style={{ fontWeight: 500, fontSize: "1.125rem" }}>{p.name}</strong>
+                <span style={{ fontSize: "0.8125rem", fontWeight: 600, color: "var(--accent)" }}>{STAGES[p.stage]}</span>
               </span>
-              <span className="muted" style={{ fontSize: 14 }}>{client ?? "Sin cliente"} · {SERVICES[p.service]}</span>
+              <span className="muted" style={{ fontSize: "0.875rem" }}>{client ?? "Sin cliente"} · {SERVICES[p.service]}</span>
               <span style={{ height: 6, background: "var(--line)", borderRadius: 3, display: "block" }}>
                 <span style={{ display: "block", width: `${Math.round(((p.stage + 1) / STAGES.length) * 100)}%`, height: 6, background: "var(--accent)", borderRadius: 3 }} />
               </span>
-              <span className="muted" style={{ fontSize: 13 }}>Presupuesto {money(p.budget)} · Comprado {money(p.spent)}</span>
+              <span className="muted" style={{ fontSize: "0.8125rem" }}>Presupuesto {money(p.budget)} · Comprado {money(p.spent)}</span>
             </Link>
           );
         })}

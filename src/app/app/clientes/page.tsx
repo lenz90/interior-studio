@@ -15,7 +15,7 @@ export default async function ClientsPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <div className="stack" style={{ ["--gap" as string]: "6px" }}>
-        <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>Clientes</h1>
+        <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Clientes</h1>
         <span className="muted">Desde el primer contacto hasta el seguimiento.</span>
       </div>
 
@@ -29,7 +29,7 @@ export default async function ClientsPage({ searchParams }: { searchParams: Prom
               href={key === "all" ? "/app/clientes" : `/app/clientes?etapa=${key}`}
               aria-current={on ? "page" : undefined}
               className="btn"
-              style={{ fontSize: 14, fontWeight: 400, ...(on ? { background: "var(--ink)", color: "#fff" } : { background: "#fff", border: "1px solid var(--line-strong)" }) }}
+              style={{ fontSize: "0.875rem", fontWeight: 400, ...(on ? { background: "var(--ink)", color: "#fff" } : { background: "#fff", border: "1px solid var(--line-strong)" }) }}
             >
               {label} · {count}
             </Link>
@@ -56,7 +56,7 @@ export default async function ClientsPage({ searchParams }: { searchParams: Prom
               )}
               {clients.map((c) => (
                 <tr key={c.id}>
-                  <td style={{ fontWeight: 500 }}>{c.name}{c.contact && <div className="muted" style={{ fontSize: 13, fontWeight: 400 }}>{c.contact}</div>}</td>
+                  <td style={{ fontWeight: 500 }}>{c.name}{c.contact && <div className="muted" style={{ fontSize: "0.8125rem", fontWeight: 400 }}>{c.contact}</div>}</td>
                   <td>{c.space}</td>
                   <td><StageSelect id={c.id} stage={c.stage} /></td>
                   <td className="muted">{c.source}</td>
@@ -70,7 +70,7 @@ export default async function ClientsPage({ searchParams }: { searchParams: Prom
       </section>
 
       <form action={addClient} className="card stack">
-        <h2 style={{ margin: 0, fontSize: 18 }}>Nuevo cliente</h2>
+        <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Nuevo cliente</h2>
         <div className="grid-auto" style={{ ["--min" as string]: "200px", ["--gap" as string]: "12px" }}>
           <label className="field">Nombre<input className="input" name="name" required /></label>
           <label className="field">Contacto<input className="input" name="contact" placeholder="Correo o WhatsApp" /></label>

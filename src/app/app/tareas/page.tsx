@@ -11,14 +11,14 @@ export default async function TasksPage() {
   return (
     <>
       <div className="stack" style={{ ["--gap" as string]: "6px" }}>
-        <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>Tareas del negocio</h1>
+        <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Tareas del negocio</h1>
         <span className="muted">Lo que haces para mejorar el estudio: marca, ventas, finanzas y operación. Los proyectos de clientes van en Proyectos.</span>
       </div>
       <Kanban initial={(data ?? []) as BusinessTask[]} />
       <section aria-label="Revisión semanal" className="card row" style={{ alignItems: "flex-start", ["--gap" as string]: "24px" }}>
         <div className="stack" style={{ flex: "1 1 220px", ["--gap" as string]: "4px" }}>
-          <h2 style={{ margin: 0, fontSize: 17 }}>Revisión semanal</h2>
-          <span className="muted" style={{ fontSize: 14 }}>Cada viernes, 10 minutos para mejorar el negocio.</span>
+          <h2 style={{ margin: 0, fontSize: "1.0625rem" }}>Revisión semanal</h2>
+          <span className="muted" style={{ fontSize: "0.875rem" }}>Cada viernes, 10 minutos para mejorar el negocio.</span>
         </div>
         <ul className="ink2" style={{ flex: "3 1 420px", margin: 0, paddingLeft: 18, lineHeight: 1.7 }}>
           <li>¿Qué tareas cerré y cuál me trabó?</li>

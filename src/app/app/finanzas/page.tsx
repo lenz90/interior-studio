@@ -34,7 +34,7 @@ export default async function FinancePage() {
   return (
     <>
       <div className="stack" style={{ ["--gap" as string]: "6px" }}>
-        <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>Finanzas</h1>
+        <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>Finanzas</h1>
         <span className="muted" style={{ textTransform: "capitalize" }}>{now.toLocaleDateString("es-CO", { month: "long", year: "numeric" })}</span>
       </div>
 
@@ -47,8 +47,8 @@ export default async function FinancePage() {
 
       <section className="card stack" style={{ ["--gap" as string]: "16px" }}>
         <div className="row between">
-          <h2 style={{ margin: 0, fontSize: 18 }}>Últimos 6 meses</h2>
-          <div className="row" style={{ fontSize: 14, ["--gap" as string]: "16px" }}>
+          <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Últimos 6 meses</h2>
+          <div className="row" style={{ fontSize: "0.875rem", ["--gap" as string]: "16px" }}>
             <span className="row" style={{ ["--gap" as string]: "6px" }}><span aria-hidden="true" style={{ width: 12, height: 12, borderRadius: 2, background: "var(--accent)" }} />Ingresos</span>
             <span className="row" style={{ ["--gap" as string]: "6px" }}><span aria-hidden="true" style={{ width: 12, height: 12, borderRadius: 2, background: "var(--wheat)" }} />Gastos</span>
           </div>
@@ -62,30 +62,30 @@ export default async function FinancePage() {
           ))}
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(6, minmax(0, 1fr))", gap: 16 }}>
-          {months.map((m) => <span key={m.key} className="muted" style={{ textAlign: "center", fontSize: 13 }}>{m.label}</span>)}
+          {months.map((m) => <span key={m.key} className="muted" style={{ textAlign: "center", fontSize: "0.8125rem" }}>{m.label}</span>)}
         </div>
       </section>
 
       <div className="grid-auto" style={{ ["--min" as string]: "320px", alignItems: "start" }}>
         <section className="card stack">
-          <h2 style={{ margin: 0, fontSize: 18 }}>Por cobrar</h2>
+          <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Por cobrar</h2>
           {(receivables ?? []).length === 0 && <p className="empty">Nada pendiente de cobro.</p>}
           {(receivables ?? []).map((t) => (
             <div key={t.id} className="list-row" style={{ alignItems: "center" }}>
               <span className="stack" style={{ ["--gap" as string]: "2px" }}>
                 <strong style={{ fontWeight: 500 }}>{t.description}</strong>
-                {t.due_date && <span style={{ fontSize: 13, color: "var(--ochre)", fontWeight: 600 }}>Vence {shortDate(t.due_date)}</span>}
+                {t.due_date && <span style={{ fontSize: "0.8125rem", color: "var(--ochre)", fontWeight: 600 }}>Vence {shortDate(t.due_date)}</span>}
               </span>
               <span className="row">
                 <span style={{ fontWeight: 500 }}>{money(t.amount)}</span>
-                <form action={markPaid.bind(null, t.id)}><button className="btn btn-outline" style={{ minHeight: 34, padding: "4px 12px", fontSize: 13 }}>Cobrado</button></form>
+                <form action={markPaid.bind(null, t.id)}><button className="btn btn-outline" style={{ minHeight: 34, padding: "4px 12px", fontSize: "0.8125rem" }}>Cobrado</button></form>
               </span>
             </div>
           ))}
         </section>
 
         <section className="card stack">
-          <h2 style={{ margin: 0, fontSize: 18 }}>Últimos gastos</h2>
+          <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Últimos gastos</h2>
           {expenses.length === 0 && <p className="empty">Sin gastos registrados.</p>}
           {expenses.map((t) => (
             <div key={t.id} className="list-row"><span>{t.description}</span><span>{money(t.amount)}</span></div>
@@ -93,14 +93,14 @@ export default async function FinancePage() {
         </section>
 
         <section className="card stack">
-          <h2 style={{ margin: 0, fontSize: 18 }}>Punto de equilibrio</h2>
+          <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Punto de equilibrio</h2>
           <p className="ink2" style={{ margin: 0, lineHeight: 1.6 }}>Necesitas cubrir [COSTOS FIJOS] al mes, lo que equivale a [N] proyectos de tamaño medio.</p>
-          <span className="muted" style={{ fontSize: 13 }}>Se completa cuando definas precios y costos fijos.</span>
+          <span className="muted" style={{ fontSize: "0.8125rem" }}>Se completa cuando definas precios y costos fijos.</span>
         </section>
       </div>
 
       <form action={addTransaction} className="card stack">
-        <h2 style={{ margin: 0, fontSize: 18 }}>Registrar movimiento</h2>
+        <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Registrar movimiento</h2>
         <div className="grid-auto" style={{ ["--min" as string]: "180px", ["--gap" as string]: "12px" }}>
           <label className="field">Tipo
             <select className="input" name="kind" defaultValue="income"><option value="income">Ingreso</option><option value="expense">Gasto</option></select>
@@ -122,8 +122,8 @@ export default async function FinancePage() {
 function Stat({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
     <div className="card stack" style={{ padding: 20, ["--gap" as string]: "6px" }}>
-      <span className="muted" style={{ fontSize: 14 }}>{label}</span>
-      <span style={{ fontSize: 30, fontWeight: 500, color: accent ? "var(--accent)" : undefined }}>{value}</span>
+      <span className="muted" style={{ fontSize: "0.875rem" }}>{label}</span>
+      <span style={{ fontSize: "1.875rem", fontWeight: 500, color: accent ? "var(--accent)" : undefined }}>{value}</span>
     </div>
   );
 }

@@ -22,15 +22,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
   return (
     <>
       <div className="stack" style={{ ["--gap" as string]: "8px" }}>
-        <Link href="/app/proyectos" className="muted" style={{ fontSize: 14 }}>← Proyectos</Link>
-        <h1 className="serif" style={{ margin: 0, fontSize: 44 }}>{project.name}</h1>
+        <Link href="/app/proyectos" className="muted" style={{ fontSize: "0.875rem" }}>← Proyectos</Link>
+        <h1 className="serif" style={{ margin: 0, fontSize: "var(--fs-h1)" }}>{project.name}</h1>
         <span className="muted">{client ?? "Sin cliente"} · {SERVICES[project.service]}</span>
       </div>
 
       <ProjectFlow projectId={project.id} stage={project.stage} tasks={tasks ?? []} />
 
       <section className="card stack" style={{ maxWidth: 520 }}>
-        <h2 style={{ margin: 0, fontSize: 18 }}>Presupuesto del proyecto</h2>
+        <h2 style={{ margin: 0, fontSize: "1.125rem" }}>Presupuesto del proyecto</h2>
         <div className="row between"><span className="muted">Aprobado</span><strong style={{ fontWeight: 500 }}>{money(budget)}</strong></div>
         <div className="row between"><span className="muted">Comprado hasta hoy</span><strong style={{ fontWeight: 500 }}>{money(spent)}</strong></div>
         <span style={{ height: 8, background: "var(--line)", borderRadius: 4, display: "block" }}>
