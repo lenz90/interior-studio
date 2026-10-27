@@ -199,4 +199,21 @@ table.table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; min-
 .site-nav a:not(.btn), footer a { display: inline-flex; align-items: center; min-height: 44px; }
 .enter { opacity: 0; animation: enter .6s var(--ease) forwards; animation-delay: var(--d, 0s); }
 @keyframes enter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+/* Editorial: landing */
+.wrap { width: 100%; max-width: 90rem; margin-inline: auto; padding-inline: var(--gutter); }
+.display { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; line-height: 1.02; font-size: clamp(3rem, 1.2rem + 6.4vw, 6.5rem); }
+.h2d { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; line-height: 1.04; font-size: clamp(2.25rem, 1.4rem + 3.2vw, 4.5rem); }
+.h3d { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem); }
+.label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+.body-lg { font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); line-height: 1.6; }
+.sec { padding-block: clamp(4rem, 2rem + 7vw, 9rem); }
+.underline-grow { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease); }
+.underline-grow:hover, .group:hover .underline-grow { background-size: 100% 1px; }
+body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .035; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+
+.btn-arrow .arrow { display: inline-block; transition: transform .3s var(--ease); }
+.btn-arrow:hover .arrow { transform: translateX(4px); }
+
 }

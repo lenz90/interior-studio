@@ -6,6 +6,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm", display: "sw
 const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
+  style: ["normal", "italic"],
   variable: "--font-instrument",
   display: "swap",
 });
