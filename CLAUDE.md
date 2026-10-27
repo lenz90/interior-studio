@@ -26,5 +26,10 @@ Nombre comercial: **pendiente** (en la UI aparece como `[Nombre del estudio]`; c
 - No inventar precios, plazos, testimonios ni fotos: usar marcadores `[ ]`.
 - Trabajar en ramas y PR; `main` = producción.
 
+## Diseño
+- Antes de cualquier cambio visual: leer `.claude/skills/frontend-design/SKILL.md` y `design/brief.md` (dirección estética, tokens, movimiento y alcance vigentes).
+- Los tableros de `design/*.dc.html` siguen siendo la referencia de estructura y textos; el brief define cómo se ve y se mueve.
+- Al terminar: capturas en `design/capturas/` y agente `revision-diseno`.
+
 ## Flujo de trabajo con agentes
 Ver `.claude/agents/`. Al terminar una tarea relevante, dejar un traspaso corto (Decidido / Pendiente / Afecta a) en la descripción del PR.
