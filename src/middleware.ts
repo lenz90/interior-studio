@@ -4,6 +4,15 @@ import { devPreview } from "@/lib/dev-preview";
 
 export async function middleware(request: NextRequest) {
   if (devPreview) return NextResponse.next({ request });
+
+  // Supabase redirige a la Site URL con ?error_code=... cuando el enlace del correo falla.
+  if (request.nextUrl.pathname === "/") {
+    if (!request.nextUrl.searchParams.has("error_code")) return NextResponse.next({ request });
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    url.search = `?error=${request.nextUrl.searchParams.get("error_code") === "otp_expired" ? "expired" : "invalid"}`;
+    return NextResponse.redirect(url);
+  }
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
@@ -39,5 +48,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/app/:path*", "/login"],
+  matcher: ["/", "/app/:path*", "/login"],
 };

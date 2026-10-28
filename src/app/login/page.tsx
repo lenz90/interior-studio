@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
@@ -13,6 +13,36 @@ export default function LoginPage() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    const error = new URLSearchParams(window.location.search).get("error");
+    if (!error) return;
+    setMsg(
+      error === "expired"
+        ? "El enlace de confirmación expiró o ya se usó. Si ya confirmaste, entra con tu correo y contraseña; si no, pide un correo nuevo."
+        : "No pudimos verificar el enlace. Entra con tu correo y contraseña o pide un correo de confirmación nuevo."
+    );
+    window.history.replaceState(null, "", "/login");
+  }, []);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const t = setTimeout(() => setCooldown((c) => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [cooldown]);
+
+  async function resend() {
+    if (!pendingEmail || cooldown > 0) return;
+    setCooldown(60);
+    const { error } = await createClient().auth.resend({
+      type: "signup",
+      email: pendingEmail,
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+    });
+    setMsg(error ? "No pudimos reenviar el correo ahora. Intenta de nuevo en unos minutos." : "Te enviamos un correo nuevo. Usa solo el enlace más reciente.");
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,7 +55,13 @@ export default function LoginPage() {
     if (mode === "signin") {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       setBusy(false);
-      if (error) return setMsg("Correo o contraseña incorrectos.");
+      if (error) {
+        if (error.code === "email_not_confirmed") {
+          setPendingEmail(email);
+          return setMsg("Tu correo aún no está confirmado. Revisa tu bandeja o pide un correo nuevo.");
+        }
+        return setMsg("Correo o contraseña incorrectos.");
+      }
       router.push("/app");
       router.refresh();
     } else {
@@ -35,12 +71,18 @@ export default function LoginPage() {
         options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
       });
       setBusy(false);
-      if (error) return setMsg(error.message);
+      if (error) return setMsg("No pudimos crear la cuenta. Revisa los datos e intenta de nuevo.");
+      // Correo ya registrado: Supabase responde "éxito" sin identidades y sin enviar correo.
+      if (data.user && data.user.identities?.length === 0) {
+        return setMsg("Ese correo ya tiene una cuenta. Entra con tu contraseña o, si no la confirmaste, pide un correo nuevo.");
+      }
       if (data.session) {
         router.push("/app");
         router.refresh();
       } else {
-        setMsg("Revisa tu correo y confirma la cuenta para entrar.");
+        setPendingEmail(email);
+        setCooldown(60);
+        setMsg("Revisa tu correo y abre el enlace de confirmación (solo funciona una vez). Luego entra aquí.");
       }
     }
   }
@@ -66,6 +108,12 @@ export default function LoginPage() {
           </Button>
         </form>
         {msg && <p role="status" className="ink2" style={{ margin: 0, fontSize: "0.875rem" }}>{msg}</p>}
+        {pendingEmail && (
+          <button type="button" className="btn" disabled={cooldown > 0} onClick={resend}
+            style={{ background: "transparent", color: "var(--accent)", padding: 0, minHeight: 32 }}>
+            {cooldown > 0 ? `Reenviar correo (${cooldown} s)` : "Reenviar correo de confirmación"}
+          </button>
+        )}
         <button
           type="button"
           className="btn"
