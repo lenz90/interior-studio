@@ -48,7 +48,7 @@ export default function LoginPage() {
   return (
     <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 16 }}>
       <div className="card stack" style={{ width: "100%", maxWidth: 400, padding: 32, ["--gap" as string]: "20px" }}>
-        <Link href="/" className="serif" style={{ fontSize: "1.625rem", textDecoration: "none" }}>[Nombre del estudio]</Link>
+        <Link href="/" className="serif" style={{ fontSize: "1.625rem", textDecoration: "none" }}>Mireya Ochoa</Link>
         <h1 style={{ margin: 0, fontSize: "1.375rem", fontWeight: 500 }}>
           {mode === "signin" ? "Entrar a tu espacio de trabajo" : "Crear la cuenta del estudio"}
         </h1>

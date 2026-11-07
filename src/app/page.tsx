@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import ProcessSteps from "@/components/ProcessSteps";
 import { CaptureMode, Drift, DrawLine, Line, Photo, Reveal, Stagger, StaggerItem } from "@/components/motion";
 
-const STUDIO_NAME = "[Nombre del estudio]";
+const STUDIO_NAME = "Mireya Ochoa";
 
 const services = [
   {
@@ -45,7 +45,7 @@ export default function Home() {
       <CaptureMode />
       <header className="wrap flex flex-wrap items-center justify-between gap-4 py-6">
         <Link href="#inicio" className="font-serif text-[clamp(1.5rem,1.2rem+0.8vw,2rem)] tracking-tight no-underline">
-          {STUDIO_NAME} <span className="text-muted-foreground">· interiores</span>
+          {STUDIO_NAME} <span className="text-muted-foreground">· interiorismo</span>
         </Link>
         <nav aria-label="Principal" className="site-nav flex flex-wrap items-center gap-x-8 gap-y-2 text-[0.9375rem]">
           <a href="#servicios">Servicios</a>
@@ -186,9 +186,9 @@ export default function Home() {
       </section>
 
       <footer className="wrap flex flex-wrap items-center justify-between gap-3 py-8 text-sm text-muted-foreground">
-        <span>{STUDIO_NAME} · interiores</span>
+        <span>{STUDIO_NAME} · interiorismo</span>
         <span>
-          [Ciudad] · [Instagram] · [WhatsApp] · <Link href="/login">Acceso</Link>
+          Lima · [Instagram] · [WhatsApp] · <Link href="/login">Acceso</Link>
         </span>
       </footer>
     </main>

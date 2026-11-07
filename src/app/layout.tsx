@@ -12,7 +12,7 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "[Nombre del estudio] · Diseño de interiores",
+  title: "Mireya Ochoa · Interiorismo en Lima",
   description:
     "Estudio de diseño de interiores: una sola persona te acompaña desde la primera idea hasta la entrega de llaves.",
 };

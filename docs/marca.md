@@ -1,6 +1,6 @@
 # Marca
 
-- **Nombre:** pendiente (marcador `[Nombre del estudio]`).
+- **Nombre:** Mireya Ochoa · Interiorismo (decidido 2026-11-06). "One Person" es solo el nombre del proyecto interno.
 - **Personalidad:** cercana, cálida, clara. Una sola persona responsable de tu proyecto.
 - **Tono:** invitante ("Cuéntame de tu espacio", "Agenda una consulta"), sin tecnicismos.
 - **Tipografía:** Instrument Serif (títulos) + DM Sans (texto).

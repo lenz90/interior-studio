@@ -25,7 +25,7 @@ export default function AppNav({ email }: { email: string }) {
   return (
     <aside className="app-aside">
       <Link href="/" className="serif" style={{ fontSize: "1.625rem", color: "var(--bg)", textDecoration: "none" }}>
-        [Nombre del estudio]
+        Mireya Ochoa
       </Link>
       <nav aria-label="Espacio de trabajo" style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: "0.9375rem" }}>
         {links.map((l) => {

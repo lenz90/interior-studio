@@ -1,7 +1,7 @@
 # interior-studio
 
 Web pública + espacio de trabajo interno para un estudio de diseño de interiores de **una sola persona**.
-Nombre comercial: **pendiente** (en la UI aparece como `[Nombre del estudio]`; cambiar en un solo lugar cuando se decida — buscar ese texto).
+Nombre comercial: **Mireya Ochoa** (formato "Mireya Ochoa · Interiorismo"). Decidido el 2026-11-06.
 
 ## Stack
 - Next.js 15 (App Router, TypeScript, Server Actions), React 19, CSS plano en `src/app/globals.css` (sin Tailwind).

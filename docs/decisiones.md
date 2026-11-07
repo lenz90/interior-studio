@@ -12,5 +12,5 @@
 | 2026-10-26 | Inicio de sesión desde el principio; primera cuenta = dueña |
 
 ## Pendientes clave
-Nombre del estudio · logo · ciudad principal · precios · plazos · fotos · texto "Sobre mí" · testimonios.
+Logo ·  · precios · plazos · fotos · texto "Sobre mí" · testimonios.
 El historial completo vive en el Proyecto de Claude "Empresa One Person".
