@@ -188,7 +188,9 @@ export default function Home() {
       <footer className="wrap flex flex-wrap items-center justify-between gap-3 py-8 text-sm text-muted-foreground">
         <span>{STUDIO_NAME} · interiorismo</span>
         <span>
-          Lima · [Instagram] · [WhatsApp] · <Link href="/login">Acceso</Link>
+          Lima ·{" "}
+          <a href="https://www.instagram.com/mireyaochoaq/" target="_blank" rel="noopener noreferrer">Instagram</a>{" "}
+          · [WhatsApp] · <Link href="/login">Acceso</Link>
         </span>
       </footer>
     </main>
